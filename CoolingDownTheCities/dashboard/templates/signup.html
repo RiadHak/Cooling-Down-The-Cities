@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{%block title%} sing up {%endblock%}</title>
+    <title>{%block title%} Sign up {%endblock%}</title>
 </head>
 <body>
     {%block content%}
     {%include "navbar/navbar.html"%}
     <div class="container min-vh-100 align-items-center d-flex justify-content-center">
         <form action="" method="POST" class="form-control w-25 shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+            {%csrf_token%}
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
                 <input type="text" class="form-control" id="username">
@@ -28,6 +29,9 @@
                         <button type="submit" class="btn btn-primary">Sign up</button> <p></p>
                     </div>
                 </div>
+            </div>
+            <div>
+                <p style="font-size: 11px">By clicking “Sign up”, you agree to our terms of service and acknowledge that you have read and understand our <a href="/privatepolicy" target="_blank">privacy policy.</a></p>
             </div>
           </form>
     </div>
