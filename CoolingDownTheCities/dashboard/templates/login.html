@@ -10,17 +10,9 @@
 <body>
 
     {%block content%}
-    <nav class="navbar bg-body-tertiary shadow-lg">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img width="30" height="24" class="d-inline-block align-text-top">
-            Cooling down the city
-          </a>
-        </div>
-    </nav>
-
+    {%include "navbar/navbar.html"%}
     <div class="container min-vh-100 align-items-center d-flex justify-content-center">
-        <form class="form-control w-25 shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+        <form action="" method="POST" class="form-control w-25 shadow-lg p-3 mb-5 bg-body-tertiary rounded">
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Email address</label>
               <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -33,7 +25,17 @@
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
               <label class="form-check-label" for="exampleCheck1">Remember</label> 
             </div>
-            <button type="submit" class="btn btn-primary">Login</button> <p> <a href="#" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover float-end">Sing up</a></p>
+            <div class="container">
+                <div class="row">
+                    <div class="col p-0">
+                        <button type="submit" class="btn btn-primary">Login</button> <p></p>
+                    </div>
+                    <div class="col p-0 m-1">
+                        <a href="/signup" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover float-end">Sign up</a></p>    
+                    </div>
+                </div>
+            </div>
+            
           </form>
     </div>
     {%endblock%}
