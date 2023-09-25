@@ -13,6 +13,7 @@
     {%include "navbar/navbar.html"%}
     <div class="container min-vh-100 align-items-center d-flex justify-content-center">
         <form action="" method="POST" class="form-control w-25 shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+            {%csrf_token%}
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Email address</label>
               <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -35,7 +36,6 @@
                     </div>
                 </div>
             </div>
-            
           </form>
     </div>
     {%endblock%}

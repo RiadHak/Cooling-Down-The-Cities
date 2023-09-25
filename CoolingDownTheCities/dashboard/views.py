@@ -7,3 +7,7 @@ def login(request):
 def signup(request):
     
     return render(request, 'signup.html')
+
+def privatePolicy(request):
+    
+    return render(request, 'privatepolicy/privatepolicy.html')
