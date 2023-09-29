@@ -23,13 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-!zt)ovy^t3z50z%kt9h+e)ph9nv&v4+l)9^cdplq8*o6m!iouy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['cdtc.azurewebsites.net']
+ALLOWED_HOSTS = ['cdtc-dash.azurewebsites.net']
 
 
 # Application definition
-
+CSRF_TRUSTED_ORIGINS=['https://cdtc-dash.azurewebsites.net/']
 INSTALLED_APPS = [
     'dashboard.apps.DashboardConfig',
     'django.contrib.admin',
@@ -117,7 +117,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
