@@ -16,10 +16,6 @@ def signup(request):
             pass
     return render(request, 'signup.html')
             
-    
-    
-    
-
 def privatePolicy(request):
     
     return render(request, 'privatepolicy/privatepolicy.html')
