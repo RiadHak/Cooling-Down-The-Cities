@@ -1,4 +1,5 @@
 from django.db import models
+
 from .validators import *
 # Create your models here.
 class Register(models.Model):
@@ -7,6 +8,3 @@ class Register(models.Model):
     password  = models.CharField(max_length=50)     
     class Meta:
         db_table = 'users'
-    
-    
-    
