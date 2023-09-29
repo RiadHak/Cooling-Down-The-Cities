@@ -9,7 +9,7 @@ class RegisterFrom(forms.ModelForm):
     email = forms.EmailField(widget=forms.EmailInput(
         attrs={
             'class': 'form-control',
-        }    
+        }   
     ))
     password = forms.CharField(widget=forms.PasswordInput(
         attrs={
