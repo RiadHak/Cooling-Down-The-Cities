@@ -17,8 +17,8 @@ def signup(request):
         
     form = RegisterFrom()
     return render(request, 'signup.html', {'form':form})
-        
-    
+
+
 
 def privatePolicy(request):
     
