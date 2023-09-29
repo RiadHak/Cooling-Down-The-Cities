@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'cdtc-dash'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_37DB68059A03438A8D9C793E530F88FA }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FD93D3CC5CEA4B4EA45B187608DB8250 }}
