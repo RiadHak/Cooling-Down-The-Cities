@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dashboard',
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -81,13 +82,24 @@ WSGI_APPLICATION = 'CoolingDownTheCities.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'cdtc',
+#         'USER': 'cdtcadmin',
+#         'PASSWORD': 'Projectroot.',
+#         'HOST': 'cdtc-project.mysql.database.azure.com',
+#         'PORT': '3306'
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cdtc',
-        'USER': 'cdtcadmin',
-        'PASSWORD': 'Projectroot.',
-        'HOST': 'cdtc-project.mysql.database.azure.com',
+        'NAME': 'djangoDB',
+        'USER': 'root',
+        'PASSWORD': 'password',
+        'HOST': '127.0.0.1',
         'PORT': '3306'
     }
 }

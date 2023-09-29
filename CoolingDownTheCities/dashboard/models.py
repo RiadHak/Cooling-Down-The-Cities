@@ -1,10 +1,12 @@
 from django.db import models
-from django.core.validators import validate_email, validate_slug
+from .validators import *
 # Create your models here.
-class CustomUser(models.Model):
+class Register(models.Model):
     username  = models.CharField(max_length=25)
-    email     = models.EmailField(validators=[validate_email])
-    password  = models.CharField(max_length=50)
+    email     = models.EmailField()
+    password  = models.CharField(max_length=50)     
+    class Meta:
+        db_table = 'users'
     
     
     
