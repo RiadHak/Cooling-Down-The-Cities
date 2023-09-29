@@ -1,0 +1,32 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "riad",
+            "database": "riad_cdc",
+            "username": "riad_cdc",
+            "password": ""
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Enabled",
+                "ssl": {}
+            },
+            "previewLimit": 50,
+            "server": "riad.davinci-itenmedia.nl",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "riad",
+            "database": "riad_cdc",
+            "username": "riad_cdc"
+        }
+    ]
+}
