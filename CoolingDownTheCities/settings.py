@@ -83,10 +83,23 @@ DATABASES = {
         'NAME': 'cdtc',
         'USER': 'cdtcadmin',
         'PASSWORD': 'Projectroot.',
-        'HOST': 'cdtc-project.mysql.database.azure.com',
+        'HOST': 'cdtc-mysql.database.azure.com',
         'PORT': '3306'
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'djangoDB',
+#         'USER': 'root',
+#         'PASSWORD': 'password',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306'
+#     }
+# }
+
+
 
 
 # Password validation
