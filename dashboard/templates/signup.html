@@ -9,14 +9,29 @@
     {% load bootstrap5 %}
         <div class="container min-vh-100 align-items-center d-flex justify-content-center">
             <form action="/signup/" method="POST" class="form-control w-25 shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+                {%for message in messages%}
+                <div class="alert alert-success d-flex align-items-center alert-dismissible" role="alert">
+                <strong style="font-size: 10px;">{{message}}</strong> 
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+              {%endfor%}
+                <h2 class="mb-3">Register</h2>
                 {%csrf_token%}
                 <div class="mb-3">
-                    {{form.as_p}}
-                </div>
-                <div class="mb-3">
-                
-                </div>
-                <div class="mb-3">
+                    <div class="mb-3">
+                        {{form.username.label}}
+                        {{form.username}}
+                        
+                    </div>
+                    <div class="mb-3">
+                        {{form.email.label}}
+                        {{form.email}}
+                    </div>
+                    <div class="mb-3">
+                        {{form.password.label}}
+                        {{form.password}}
+                    </div>
+                    
                 </div>
                 <div class="container">
                     <div class="row">
