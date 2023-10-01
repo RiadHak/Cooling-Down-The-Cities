@@ -1,4 +1,5 @@
 from django.db import models
+from django.core import validators
 # Create your models here.
 class Register(models.Model):
     username  = models.CharField(max_length=25,unique=True)
