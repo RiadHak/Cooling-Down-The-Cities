@@ -1,13 +1,12 @@
 from django.shortcuts import render, redirect
 from .forms import RegisterFrom
 from django.contrib import messages
-from .validators import validation
+from .models import Register
 
 
 def login(request):
     
     return render(request, 'login.html')
-    
     
 def signup(request):
     
@@ -18,13 +17,7 @@ def signup(request):
             messages.success(request, 'Registration successful!')
             return redirect('/signup')
         else:
-            form = RegisterFrom()
-            username = request.POST.get('username')
-            email = request.POST.get('email')
-            checking = validation(username, email)
-            _= [messages.error(request, x) for x in checking]              
             return render(request, 'signup.html', {'form':form})
-
     form = RegisterFrom()
     return render(request, 'signup.html', {'form':form})
 
