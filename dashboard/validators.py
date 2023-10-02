@@ -1,17 +1,14 @@
-from django.core.exceptions import ValidationError
-from django.utils.translation import gettext_lazy as _
-from django.core.validators import validate_email
-import re
+from .models import Register
 
-def Validate_email(value):
-
-    if validate_email(value):
-        raise ValidationError('not a valid email')
-    return value
-
-# def Validate_username(value):
-#     regex = ['0-9']
-#     if value > 25 and :
-#         raise ValidationError('Username is to ')
+def validation(username, email):
+    
+    message_list = []
+    if Register.objects.filter(username=username).exists():
+        message_list.append('Username already exists!')
+    if Register.objects.filter(email=email).exists():
+        message_list.append('Email already used for another account!')
+    if message_list == []:
+        return None
+    return message_list
 
     

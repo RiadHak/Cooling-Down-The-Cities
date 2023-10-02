@@ -8,15 +8,28 @@
     {%include "navbar/navbar.html"%}
     {% load bootstrap5 %}
         <div class="container min-vh-100 align-items-center d-flex justify-content-center">
-            <form action="/signup/" method="POST" class="form-control w-25 shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+            <form action="/signup/" method="POST" class="form-control w-25 shadow-lg p-3 mb-5 bg-body-tertiary rounded" novalidate>
                 {%csrf_token%}
+                {%if messages%}
+                    {%for message in messages%}
+                        <div class="alert alert-success d-flex align-items-center alert-dismissible" role="alert">
+                        <strong class="fs-6">{{message}}</strong> 
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {%endfor%}
+                {%endif%}
+                <h2 class="mb-3">Register</h2>
                 <div class="mb-3">
-                    {{form.as_p}}
-                </div>
-                <div class="mb-3">
-                
-                </div>
-                <div class="mb-3">
+                    {% for field in form %}
+                    <div class="mb-3">
+                        {{ field }}
+                        {% if field.errors %}
+                        <div style="color: red; font-size: 11px;">
+                            <span>{{ field.errors }}</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
                 </div>
                 <div class="container">
                     <div class="row">
