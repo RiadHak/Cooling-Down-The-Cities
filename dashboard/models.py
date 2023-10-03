@@ -1,9 +1,8 @@
 from django.db import models
-from django.core import validators
 # Create your models here.
 class Register(models.Model):
     username  = models.CharField(max_length=25,unique=True)
     email     = models.EmailField(unique=True)
-    password  = models.CharField(max_length=50)     
+    password  = models.CharField(max_length=100)     
     class Meta:
         db_table = 'users'
