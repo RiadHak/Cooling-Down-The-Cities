@@ -1,9 +1,6 @@
 from django import forms
 from .models import Register
-from django.core.exceptions import ValidationError
 from django.core import validators
-from django.core.validators import validate_email
-
 
 class RegisterFrom(forms.ModelForm):
     username = forms.CharField(
@@ -19,6 +16,9 @@ class RegisterFrom(forms.ModelForm):
         validators=[validators.MinLengthValidator(5)], 
         required=True, 
         widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'password'}))
+    
+    
+    
     class Meta:
         model = Register
         fields = ('username', 'email', 'password')
