@@ -15,18 +15,16 @@ def signup(request):
         if form.is_valid():
             Pw_hasher = PasswordHasher()
             pw = form.cleaned_data.get('password')
-            username = form.cleaned_data.get('username')
-            email = form.cleaned_data.get('email')
             hash_pw = Pw_hasher.hash(pw).encode('utf-8')
-            user = Register(username=username, email=email, password=hash_pw)
-            user.save()
+            instance = form.save(commit=False)
+            instance.password = hash_pw
+            instance.save()
             messages.success(request, 'Registration successful!')
             return redirect('/signup')
         else:
             return render(request, 'signup.html', {'form':form})
     form = RegisterFrom()
     return render(request, 'signup.html', {'form':form})
-
 
 
 def privatePolicy(request):
