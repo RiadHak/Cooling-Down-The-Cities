@@ -2,7 +2,7 @@ from django import forms
 from .models import Register
 from django.core import validators
 
-class RegisterFrom(forms.Form):
+class RegisterFrom(forms.ModelForm):
     username = forms.CharField(
         validators=[validators.MinLengthValidator(5), validators.MaxLengthValidator(25)], 
         required=True, 
