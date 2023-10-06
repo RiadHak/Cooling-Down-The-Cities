@@ -10,10 +10,10 @@
         <div class="container min-vh-100 align-items-center d-flex justify-content-center">
             <form action="/signup/" method="POST" class="form-control w-25 shadow-lg p-3 mb-5 bg-body-tertiary rounded" novalidate>
                 {%csrf_token%}
-                {%if messages%}
-                    {%for message in messages%}
+                {%if message%}
+                    {%for messages in message%}
                         <div class="alert alert-success d-flex align-items-center alert-dismissible" role="alert">
-                        <strong class="fs-6">{{message}}</strong> 
+                        <strong class="fs-6">{{messages}}</strong> 
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     {%endfor%}
