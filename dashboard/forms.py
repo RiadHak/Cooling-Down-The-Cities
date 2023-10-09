@@ -1,6 +1,10 @@
 from django import forms
-from .models import Register
+from .models import CustomUser
+from django.core.exceptions import ValidationError
 from django.core import validators
+from django.core.validators import validate_email
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+
 
 class RegisterFrom(forms.ModelForm):
     username = forms.CharField(
@@ -14,17 +18,20 @@ class RegisterFrom(forms.ModelForm):
     
     password = forms.CharField(
         validators=[validators.MinLengthValidator(5)], 
-        required=True, 
         widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'password'}))
     
-    
-    
     class Meta:
-        model = Register
+        model = CustomUser
         fields = ('username', 'email', 'password')
-        
-    
-        
-        
-        
-    
+
+class LoginForm(forms.Form):
+    email = forms.EmailField(
+        max_length=65,
+        validators=[validators.MinLengthValidator(5), validators.MaxLengthValidator(25)],
+        widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'email'}) 
+    )
+    password = forms.CharField(
+        max_length=256,
+        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'password'}),
+        validators=[validators.MinLengthValidator(5), validators.MaxLengthValidator(25)], 
+    )

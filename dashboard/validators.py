@@ -1,14 +1,6 @@
-from .models import Register
+from argon2 import PasswordHasher
 
-def validation(username, email):
-    
-    message_list = []
-    if Register.objects.filter(username=username).exists():
-        message_list.append('Username already exists!')
-    if Register.objects.filter(email=email).exists():
-        message_list.append('Email already used for another account!')
-    if message_list == []:
-        return None
-    return message_list
-
-    
+def HashPW(password):
+    passwordh = PasswordHasher()
+    hashing = passwordh.hash(password).encode('utf-8')
+    return (hashing, passwordh)
