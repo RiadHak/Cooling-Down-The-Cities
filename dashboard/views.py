@@ -8,7 +8,7 @@ from .validators import HashPW
 def signin(request):
     if request.method == "GET":
         if request.user.is_authenticated:
-            return redirect('index')
+            return redirect('dashboard')
         form = LoginForm()
         return render(request, "signin.html", {'form' : form})
     
@@ -22,7 +22,7 @@ def signin(request):
             if user:
                 print('success')
                 login(request, user)
-                return redirect('index')
+                return redirect('dashboard')
             else:
                 messages.error(request, f'Invalid email or password')
                 return render(request,'signin.html',{'form': form})
@@ -44,7 +44,7 @@ def signup(request):
             instance.password = hash_pw
             instance.save()
             messages = 'Registration successful!'
-            return redirect('/signup')
+            return redirect('/signin')
         else:
             return render(request, 'signup.html', {'form':form})
     form = RegisterFrom()
@@ -54,5 +54,5 @@ def privatePolicy(request):
     return render(request, 'privatepolicy/privatepolicy.html')
 
 @login_required(login_url='/signin/')
-def index(request):
+def dashboard(request):
     return render(request, 'index.html')
