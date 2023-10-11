@@ -9,7 +9,7 @@
     {% load bootstrap5 %}
 
     {%if request.user.is_authenticated%}
-        <h1>Hi {{request.user.username | title}}</h1>
+        <h1>Hi {{request.user.username}}</h1>
         <h1><a href="{%url 'signout'%}">Log out</a></h1>
     {%endif%}
 
