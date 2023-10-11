@@ -8,7 +8,6 @@
 </head>
 <body>
     {%block content%}
-    {%include "navbar/navbar.html"%}
     <div class="container min-vh-100 align-items-center d-flex justify-content-center">
         <form action="" method="POST" class="form-control w-25 shadow-lg p-3 mb-5 bg-body-tertiary rounded">
         {%if messages%}
@@ -23,15 +22,11 @@
             <h2 class="fs-5">Login</h2>
             {{form.as_p}}
             <input class="btn btn-primary" type="submit" value="Login">
-            <br>
             <div class="pt-2">
                 <p style="font-size: 13px">Dont have an account? <a href="{%url 'signup'%}">Create one</a></p>
             </div>
-
           </form>
-
     </div>
-
     {%endblock%}
 </body>
 </html>
