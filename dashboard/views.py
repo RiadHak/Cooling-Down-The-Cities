@@ -20,7 +20,6 @@ def signin(request):
             password = form.cleaned_data.get('password')
             user = authenticate(email=email, password=password)
             if user:
-                print('success')
                 login(request, user)
                 return redirect('dashboard')
             else:
