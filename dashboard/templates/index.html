@@ -13,11 +13,19 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg shadow-lg">
+        {% if user.is_authenticated%}
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/dashboard">
                 <img width="30" height="24" class="d-inline-block align-text-top">
                 Cooling down the city
             </a>
+        {%else%}
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/signin">
+                <img width="30" height="24" class="d-inline-block align-text-top">
+                Cooling down the city
+            </a>
+        {%endif%}
             {%if request.user.is_authenticated%}
             <ul class="navbar-nav">
                 <li class="navbar-item dropdown">
@@ -45,6 +53,14 @@
         </div>
     </nav>
     <div id="index" class="">{%block content%} {%endblock%}</div>
+
+    <footer class="text-center text-lg-start">
+        <div class="text-center p-3">
+            CopyRight
+            <img class="" src="" alt="">
+            <img class="" src="" alt="">
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
