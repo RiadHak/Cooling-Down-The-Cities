@@ -3,55 +3,53 @@ from .forms import RegisterFrom, LoginForm
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
-from .validators import HashPW
+
 
 def signin(request):
-    if request.method == "GET":
-        if request.user.is_authenticated:
+    # if request.method == "GET":
+    #     if request.user.is_authenticated:
+    #         return redirect('dashboard')
+    #     form = LoginForm()
+    #     return render(request, "signin.html", {'form' : form})
+    if request.method == "POST":
+        form = LoginForm(data=request.POST)
+        username = request.POST.get('username') 
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        print('test')
+        if user is not None:
+            print('login')
+            login(request, user)
             return redirect('dashboard')
+        return render(request,'registration/login.html',{'form': form})
+    else:
+        print('error')
         form = LoginForm()
-        return render(request, "signin.html", {'form' : form})
-    
-    elif request.method == "POST":
-        form = LoginForm(request.POST)
+        return render(request,'registration/login.html',{'form': form})
 
-        if form.is_valid():
-            email = form.cleaned_data.get('email')
-            password = form.cleaned_data.get('password')
-            user = authenticate(email=email, password=password)
-            if user:
-                login(request, user)
-                return redirect('dashboard')
-            else:
-                messages.error(request, f'Invalid email or password')
-                return render(request,'signin.html',{'form': form})
-    return render(request, 'signin.html')
 
-@login_required(login_url='/signin/')
+
+@login_required(login_url='/login/')
 def signout(request):
     logout(request)
     messages.success(request,f'You have been logged out.')
-    return redirect('signin')      
+    return redirect('login')      
 
 def signup(request):
     if request.method == "POST":
         form = RegisterFrom(request.POST)
         if form.is_valid():
-            pw = form.cleaned_data.get('password')
-            hash_pw = HashPW(pw)
-            instance = form.save(commit=False)
-            instance.password = hash_pw
-            instance.save()
+            form.save()
             messages = 'Registration successful!'
-            return redirect('/signin')
+            return redirect('/login')
         else:
-            return render(request, 'signup.html', {'form':form})
+            return render(request, 'registration/signup.html', {'form':form})
     form = RegisterFrom()
-    return render(request, 'signup.html', {'form':form})
+    return render(request, 'registration/signup.html', {'form':form})
 
 def privatePolicy(request):
     return render(request, 'privatepolicy/privatepolicy.html')
 
-@login_required(login_url='/signin/')
+@login_required(login_url='/login/')
 def dashboard(request):
     return render(request, 'index.html')
