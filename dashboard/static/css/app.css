@@ -1,5 +1,18 @@
-#index{
-    background-image: url("../img/cdtc.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+/* Import abstracts styles */
+
+
+/* Import base styles */
+
+
+/* Import component styles */
+@import url('components/images.css');
+
+/* Import layout styles */
+
+
+/* Import page styles */
+
+
+
+
+/* #index {} */
