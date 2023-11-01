@@ -3,31 +3,27 @@ from .forms import RegisterFrom, LoginForm
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
+from .models import CustomUser
 
 
 def signin(request):
-    # if request.method == "GET":
-    #     if request.user.is_authenticated:
-    #         return redirect('dashboard')
-    #     form = LoginForm()
-    #     return render(request, "signin.html", {'form' : form})
-    if request.method == "POST":
+    if request.method == "GET":
+        if request.user.is_authenticated:
+            return redirect('dashboard')
+        form = LoginForm()
+        return render(request, "registration/login.html", {'form' : form})
+    elif request.method == "POST":
         form = LoginForm(data=request.POST)
-        username = request.POST.get('username') 
+        email = request.POST.get('username')
         password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
-        print('test')
+        user = authenticate(request, email=email, password=password)
+        
+        print(f'test {user}')
         if user is not None:
             print('login')
             login(request, user)
             return redirect('dashboard')
         return render(request,'registration/login.html',{'form': form})
-    else:
-        print('error')
-        form = LoginForm()
-        return render(request,'registration/login.html',{'form': form})
-
-
 
 @login_required(login_url='/login/')
 def signout(request):
@@ -43,7 +39,8 @@ def signup(request):
             messages = 'Registration successful!'
             return redirect('/login')
         else:
-            return render(request, 'registration/signup.html', {'form':form})
+            return render(request, 'registration/signup.html', {'form': form})
+
     form = RegisterFrom()
     return render(request, 'registration/signup.html', {'form':form})
 
