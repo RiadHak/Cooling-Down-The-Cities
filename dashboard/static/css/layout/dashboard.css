@@ -1,0 +1,39 @@
+#dashboard-frame {
+    margin: 2%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    display: flex;
+}
+
+#dashboard-boxname-field {
+    margin: 1em;
+    padding: 0.5em;
+    text-align: left;
+    font-size: 18px;
+}
+
+.dashboard-chart {
+    margin: 0.5em;
+    min-width: 200px;
+    min-height: 200px;
+    height: auto; 
+    flex-grow: 1;
+    flex-basis: 0;
+    position: relative;
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.dashboard-chart::before {
+    content: "";
+    padding-top: 100%;
+    display: block;
+}
+
+#dashboard-charts-field {
+    margin: 1em;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: center; 
+}
