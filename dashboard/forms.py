@@ -1,37 +1,22 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm, AuthenticationForm
 from .models import CustomUser
-from django.core.exceptions import ValidationError
-from django.core import validators
-from django.core.validators import validate_email
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from .validators import *
 
-
-class RegisterFrom(forms.ModelForm):
-    username = forms.CharField(
-        validators=[validators.MinLengthValidator(5), validators.MaxLengthValidator(25)], 
-        required=True, 
-        widget= forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'username'}))
-    
-    email = forms.EmailField(
-        required=True, 
-        widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'email'}))
-    
-    password = forms.CharField(
-        validators=[validators.MinLengthValidator(5)], 
-        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'password'}))
+class RegisterFrom(UserCreationForm):
+    email = forms.EmailField(required=True, validators=[validate_email])
     
     class Meta:
         model = CustomUser
-        fields = ('username', 'email', 'password')
+        fields = ['username','email','password1','password2']
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['password1'].help_text = ''
+        self.fields['username'].help_text= ''
 
-class LoginForm(forms.Form):
-    email = forms.EmailField(
-        max_length=65,
-        validators=[validators.MinLengthValidator(5), validators.MaxLengthValidator(25)],
-        widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'email'}) 
-    )
-    password = forms.CharField(
-        max_length=256,
-        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'password'}),
-        validators=[validators.MinLengthValidator(5), validators.MaxLengthValidator(25)], 
-    )
+class LoginForm(AuthenticationForm):
+    username = forms.EmailField(required=True, validators=[validate_username])
+    class Meta:
+        model = CustomUser
+        fields = ['email','password']
