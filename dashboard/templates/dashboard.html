@@ -1,5 +1,6 @@
 {%extends "index.html"%}
 {%block title%} Dashboard {%endblock%}
+{%load static%}
 <body>
     {%block content%}
     <div class="curved-border border-black" id="dashboard-frame">
@@ -16,5 +17,6 @@
         </div>
         <div class="half-column float-right">Placeholder</div>
     </div>
+    <script src="{%static 'js/dashboard.js'%}"></script>
     {%endblock%}
 </body>
