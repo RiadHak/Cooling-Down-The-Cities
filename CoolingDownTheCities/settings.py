@@ -99,7 +99,7 @@ WSGI_APPLICATION = 'CoolingDownTheCities.wsgi.application'
 common_commands = ['makemigrations','migrate','createsuperuser','collectstatic','8000','showmigrations']
 try: 
     if len(sys.argv) > 1 and [sys.argv[1] or sys.argv[2] == x for x in common_commands]:
-        print("Using local DB")
+        
         DEBUG = True
         DATABASES = {
             'default': {
@@ -108,7 +108,8 @@ try:
                 'USER': os.environ.get("DB_USER"),
                 'PASSWORD': os.environ.get("DB_PASS"),
                 'HOST': os.environ.get("DB_HOST"),
-                'PORT': '3306'
+                'PORT': '3306',
+                'print': print("Using local DB")
             }
         }
     else:

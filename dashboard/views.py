@@ -18,9 +18,7 @@ def signin(request):
         password = request.POST.get('password')
         user = authenticate(request, email=email, password=password)
         
-        print(f'test {user}')
         if user is not None:
-            print('login')
             login(request, user)
             return redirect('dashboard')
         return render(request,'registration/login.html',{'form': form})
