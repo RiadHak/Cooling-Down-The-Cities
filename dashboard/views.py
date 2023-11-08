@@ -27,7 +27,7 @@ def signin(request):
 def signout(request):
     logout(request)
     messages.success(request,f'You have been logged out.')
-    return redirect('signin')      
+    return redirect('/signin')      
 
 def signup(request):
     if request.method == "POST":
