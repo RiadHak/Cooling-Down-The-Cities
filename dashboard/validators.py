@@ -17,3 +17,4 @@ def validate_username(value):
             (f"There is no user with the email \'{value}\', Please try again."),
             params = {'value': value}
         )
+
