@@ -44,7 +44,8 @@ class Seeders(models.Model):
     CO2  = models.IntegerField()
     luchtvochtigheid = models.IntegerField()
     luchtdruk = models.IntegerField()
-        
+    luchtkwaliteit = models.IntegerField()
+    
     def save(self, *arg, **kwarg):
         self.temperatuur = round(self.temperatuur, 2)
         super(Seeders, self).save(*arg, **kwarg)

@@ -10,13 +10,14 @@ class Command(BaseCommand):
             temp = random.uniform(-20, 50)
             co2 = random.uniform(300, 5000)
             Luchtdruk = random.uniform(940, 1060)
-            Luchtvochtigheid = random.uniform(30, 100)
-            
+            Luchtvochtigheid = random.uniform(0, 100)
+            Luchtkwaliteit = random.uniform(1, 5)
             Seeders.objects.create(
                 temperatuur = temp,
                 CO2 = co2,
                 luchtvochtigheid = Luchtvochtigheid,
-                luchtdruk = Luchtdruk
+                luchtdruk = Luchtdruk,
+                luchtkwaliteit = Luchtkwaliteit
             )
         self.stdout.write(
             self.style.SUCCESS('100 random metingen gecreëerd')
