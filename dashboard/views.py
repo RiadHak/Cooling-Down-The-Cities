@@ -23,7 +23,7 @@ def signin(request):
             return redirect('dashboard')
         return render(request,'registration/login.html',{'form': form})
 
-@login_required(login_url='/singin/')
+@login_required(login_url='/signin/')
 def signout(request):
     logout(request)
     messages.success(request,f'You have been logged out.')
