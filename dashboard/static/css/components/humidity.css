@@ -1,0 +1,46 @@
+.circle-container {
+    position: relative;
+    height: 160px;
+    width: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#circle-design{
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+    border: solid #4e9df2 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#water {
+    width: 100%;
+    background-color: #4e9df2;
+    transition: height 0.5s ease;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+
+#percentage {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 35px;
+    margin: 0;
+    color: black;
+    z-index: 0;
+    font-weight: 700;
+}
+
+
+#humidity-chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
