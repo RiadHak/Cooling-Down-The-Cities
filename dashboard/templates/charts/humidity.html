@@ -1,0 +1,13 @@
+{%block content%}
+{%load static%}
+<link rel="stylesheet" href="{% static 'css/components/humidity.css' %}">
+<div id="circle-design">
+    <div class="circle-container">
+        <div id="water"></div>
+        <p id="percentage"></p>
+    </div>
+</div>
+
+
+<script src="{% static 'js/humidity.js'%}"></script>
+{%endblock%}
