@@ -18,18 +18,16 @@ def signin(request):
         password = request.POST.get('password')
         user = authenticate(request, email=email, password=password)
         
-        print(f'test {user}')
         if user is not None:
-            print('login')
             login(request, user)
             return redirect('dashboard')
         return render(request,'registration/login.html',{'form': form})
 
-@login_required(login_url='/login/')
+@login_required(login_url='/singin/')
 def signout(request):
     logout(request)
     messages.success(request,f'You have been logged out.')
-    return redirect('login')      
+    return redirect('/signin')      
 
 def signup(request):
     if request.method == "POST":
@@ -37,7 +35,7 @@ def signup(request):
         if form.is_valid():
             form.save()
             messages = 'Registration successful!'
-            return redirect('/login')
+            return redirect('/signin')
         else:
             return render(request, 'registration/signup.html', {'form': form})
 
@@ -47,6 +45,6 @@ def signup(request):
 def privatePolicy(request):
     return render(request, 'privatepolicy/privatepolicy.html')
 
-@login_required(login_url='/login/')
+@login_required(login_url='/signin/')
 def dashboard(request):
     return render(request, 'dashboard.html')

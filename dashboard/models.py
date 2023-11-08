@@ -11,9 +11,10 @@ class CustomUserManager(BaseUserManager):
         
         email = self.normalize_email(email)
         user = self.model(email=email, **extra_fields)
-        user.setpassword(password)
+        user.set_password(password)
         user.save(using=self._db)
         return user
+    
     def create_superuser(self, email, password, **extra_fields):
         
         extra_fields.setdefault('is_staff', True)
@@ -35,3 +36,20 @@ class CustomUser(AbstractUser):
     REQUIRED_FIELDS = []
     
     objects = CustomUserManager()
+
+
+class Seeders(models.Model):
+    
+    temperatuur = models.FloatField()
+    CO2  = models.IntegerField()
+    luchtvochtigheid = models.IntegerField()
+    luchtdruk = models.IntegerField()
+        
+    def save(self, *arg, **kwarg):
+        self.temperatuur = round(self.temperatuur, 2)
+        super(Seeders, self).save(*arg, **kwarg)
+        
+    
+    
+    
+    
