@@ -1,24 +1,22 @@
 from django import forms
-from .models import Register
-class RegisterFrom(forms.ModelForm):
-    username = forms.CharField(max_length=20, required=True, widget=forms.TextInput(
-        attrs={
-            'class': 'form-control',
-        } 
-    ))
-    email = forms.EmailField(required=True, widget=forms.EmailInput(
-        attrs={
-            'class': 'form-control',
-        }   
-    ))
-    password = forms.CharField(required=True, widget=forms.PasswordInput(
-        attrs={
-            'class': 'form-control',
-        }
-    ))
-    class Meta:
-        model = Register
-        fields = ('username', 'email', 'password')
-        
-        
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm, AuthenticationForm
+from .models import CustomUser
+from .validators import *
+
+class RegisterFrom(UserCreationForm):
+    email = forms.EmailField(required=True, validators=[validate_email])
     
+    class Meta:
+        model = CustomUser
+        fields = ['username','email','password1','password2']
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['password1'].help_text = ''
+        self.fields['username'].help_text= ''
+
+class LoginForm(AuthenticationForm):
+    username = forms.EmailField(required=True, validators=[validate_username])
+    class Meta:
+        model = CustomUser
+        fields = ['email','password']

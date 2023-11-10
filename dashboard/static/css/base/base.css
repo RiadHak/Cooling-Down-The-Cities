@@ -1,0 +1,19 @@
+.curved-border {
+    border-radius: 10px;
+}
+
+.border-black {
+    border: 2px solid black;
+}
+
+.half-column {
+    width: 50%;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}

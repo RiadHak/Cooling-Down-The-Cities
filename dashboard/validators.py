@@ -1,17 +1,20 @@
 from django.core.exceptions import ValidationError
-from django.utils.translation import gettext_lazy as _
-from django.core.validators import validate_email
-import re
+from django.contrib.auth.models import User
+from .models import CustomUser
 
-def Validate_email(value):
-
-    if validate_email(value):
-        raise ValidationError('not a valid email')
-    return value
-
-# def Validate_username(value):
-#     regex = ['0-9']
-#     if value > 25 and :
-#         raise ValidationError('Username is to ')
-
+def validate_email(value):
     
+    if CustomUser.objects.filter(email = value).exists():
+        raise ValidationError(
+            (f"{value} is already used for another account."),
+            params = {'value': value}
+        )
+        
+def validate_username(value):
+    
+    if not CustomUser.objects.filter(email = value).exists():
+        raise ValidationError(
+            (f"There is no user with the email \'{value}\', Please try again."),
+            params = {'value': value}
+        )
+

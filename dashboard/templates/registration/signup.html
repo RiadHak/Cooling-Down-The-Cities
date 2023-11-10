@@ -1,22 +1,27 @@
 {%extends "index.html"%}
+{%load crispy_forms_tags%}
 <!DOCTYPE html>
 <head>
     <title>{%block title%} Sign up {%endblock%}</title>
 </head>
 <body>
     {%block content%}
-    {%include "navbar/navbar.html"%}
     {% load bootstrap5 %}
+    <div id="user-bg-image">
         <div class="container min-vh-100 align-items-center d-flex justify-content-center">
-            <form action="/signup/" method="POST" class="form-control w-25 shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+            <form action="/signup/" method="POST" class="form-control w-25 shadow-lg p-3 mb-5 bg-body-tertiary rounded" novalidate>
                 {%csrf_token%}
+                {%if message%}
+                    {%for messages in message%}
+                        <div class="alert alert-success d-flex align-items-center alert-dismissible" role="alert">
+                        <strong class="fs-6">{{messages}}</strong> 
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {%endfor%}
+                {%endif%}
+                <h2 class="mb-3 fs-5">Create your account</h2>
                 <div class="mb-3">
-                    {{form.as_p}}
-                </div>
-                <div class="mb-3">
-                
-                </div>
-                <div class="mb-3">
+                    {{form|crispy}}
                 </div>
                 <div class="container">
                     <div class="row">
@@ -30,6 +35,7 @@
                 </div>
             </form>
         </div>
+    </div>
     {%endblock%}
 </body>
 </html>
