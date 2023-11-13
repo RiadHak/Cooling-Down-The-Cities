@@ -45,6 +45,6 @@ def signup(request):
 def privatePolicy(request):
     return render(request, 'privatepolicy/privatepolicy.html')
 
-# @login_required(login_url='/signin/')
+@login_required(login_url='/signin/')
 def dashboard(request):
     return render(request, 'dashboard.html')
