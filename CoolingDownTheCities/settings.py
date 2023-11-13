@@ -102,14 +102,13 @@ try:
         
         DEBUG = True
         DATABASES = {
-            'default': {
+             'default': {
                 'ENGINE': 'django.db.backends.mysql',
-                'NAME': os.environ.get("DB_NAME"),
-                'USER': os.environ.get("DB_USER"),
-                'PASSWORD': os.environ.get("DB_PASS"),
-                'HOST': os.environ.get("DB_HOST"),
-                'PORT': '3306',
-                'print': print("Using local DB")
+                'NAME': 'cdtc',
+                'USER': 'cdtcadmin',
+                'PASSWORD': 'Projectroot.',
+                'HOST': 'cdtc-project.mysql.database.azure.com',
+                'PORT': '3306'
             }
         }
     else:

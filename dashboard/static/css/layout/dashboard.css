@@ -22,13 +22,14 @@
     position: relative;
     max-width: 300px;
     max-height: 300px;
+    
 }
 
-.dashboard-chart::before {
+/* .dashboard-chart::before {
     content: "";
     padding-top: 100%;
     display: block;
-}
+} */
 
 #dashboard-charts-field {
     margin: 1em;

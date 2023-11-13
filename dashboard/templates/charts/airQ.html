@@ -1,0 +1,15 @@
+{%block content%}
+{%load static%}
+<link rel="stylesheet" href="{% static 'css/components/airQ.css' %}">
+<div id="outer-line" class="outer-line">
+    <div class="thermometer-container">
+        <div class="thermometer-liquid" id="thermometer-liquid"></div>
+        <div class="value-display" id="value-display">0</div>
+    </div>
+</div>
+ <!-- <input type="range" min="0" max="5" step="0.01" id="thermometerValue" class="inpi" oninput="updateThermometer(this.value)">  -->
+
+
+
+<script src="{% static 'js/airQ.js'%}"></script>
+{%endblock%}
