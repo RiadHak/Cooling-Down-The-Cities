@@ -18,8 +18,26 @@
                 <div class="curved-border border-black dashboard-chart" id="placeholder-chart"></div>
                 <div class="curved-border border-black dashboard-chart" id="carbon-chart"></div>
             </div>
+            <div class="curved-border border-black" id="dashboard-stats-field">
+                <div class="dashboard-stat-column">
+                    <div class="dashboard-stat" id="data-date">Gegevens datum: <br>.placeholder.</div>
+                    <div class="dashboard-stat" id="cur-date">Huidige datum: <br>.placeholder. </div>
+                </div>
+                <div class="dashboard-stat-column">
+                    <div class="dashboard-stat" id="data-time">Gegevens tijd: <br>.placeholder.</div>
+                    <div class="dashboard-stat" id="cur-date">Huidige tijd: <br>.placeholder.</div>
+                </div>
+                <div class="dashboard-stat-column">
+                    <div class="dashboard-stat" id="location">Locatie van weerbox: <br>.placeholder.</div>
+                </div>
+            </div>
         </div>
-        <div class="half-column float-right">Placeholder</div>
+        <div class="half-column float-right">
+            <div class="curved-border border-black" id="weather-frame">Test</div>
+            <div class="curved-border border-black" id="location-map-frame">
+                <iframe frameborder="0" width="100%" height="100%" id="map_canvas" src="https://maps.google.com/maps?q=Leerparkpromenade+110%2c+Dordrecht%2c+Nederland&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=&amp;output=embed&amp;hl=nl" title="Googlemaps kaart iframe"></iframe>
+            </div>
+        </div>
     </div>
     <script src="{%static 'js/dashboard.js'%}"></script>
     {%endblock%}

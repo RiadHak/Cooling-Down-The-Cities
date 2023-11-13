@@ -3,6 +3,8 @@
     margin-top: 1%;
     margin-bottom: 1%;
     display: flex;
+    overflow: auto;
+    box-sizing: border-box;
 }
 
 #dashboard-boxname-field {
@@ -37,4 +39,39 @@
     flex-wrap: wrap; 
     justify-content: center; 
     align-items: center; 
+}
+
+#dashboard-stats-field {
+    margin: 1em;
+    padding: 0.5em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 33%;
+}
+
+.dashboard-stat-column {
+    margin: 0.5em;
+    min-width: 200px;
+    width: auto; 
+    flex-grow: 1;
+    flex-basis: 0;
+    position: relative;
+    max-width: 300px;
+}
+
+.dashboard-stat {
+    text-align: left;
+    font-size: 18px;
+}
+
+#weather-frame {
+    margin: 1em;
+    padding: 0.5em;
+    height: 50%;
+}
+
+#location-map-frame {
+    margin: 1em;
+    padding: 0.5em;
+    height: 50%;
 }
