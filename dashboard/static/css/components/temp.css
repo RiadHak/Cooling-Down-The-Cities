@@ -106,6 +106,6 @@
   font-size: 13px;
 }
 
-.temperature-chart{
+#temperature-chart{
     overflow: hidden;
 }
