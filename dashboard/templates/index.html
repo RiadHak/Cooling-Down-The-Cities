@@ -16,13 +16,13 @@
         {% if user.is_authenticated%}
         <div class="container-fluid">
             <a class="navbar-brand" href="/dashboard">
-                <img width="40" height="40" class="d-inline-block align-text-top float-left" id="logo-image">
+                <img width="40" height="40" class="d-inline-block align-text-top float-left" id="header-logo-image">
                 <h5 class="align-text-top float-right" id="brand-title">Cooling Down The Cities</h5>
             </a>
         {%else%}
         <div class="container-fluid">
             <a class="navbar-brand" href="/signin">
-                <img width="40" height="40" class="d-inline-block align-text-top" id="logo-image">
+                <img width="40" height="40" class="d-inline-block align-text-top" id="header-logo-image">
                 Cooling down the city
             </a>
         {%endif%}
@@ -55,10 +55,10 @@
     <div id="" class="">{%block content%} {%endblock%}</div>
 
     <footer class="text-center text-lg-start">
-        <div class="text-center p-3">
-            CopyRight
-            <img class="" src="" alt="">
-            <img class="" src="" alt="">
+        <div class="container-fluid m-2">
+            <img width="60" height="60" class="d-inline-block align-text-top float-left" id="footer-left-logo-image">
+            <img width="100" height="60" class="d-inline-block align-text-top float-right" id="footer-right-logo-image">
+            <div class="text-center p-3">Copyright</div>
         </div>
     </footer>
 
