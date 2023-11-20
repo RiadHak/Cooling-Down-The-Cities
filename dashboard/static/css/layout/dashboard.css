@@ -83,6 +83,43 @@
     height: 50%;
 }
 
+.chart-broder{
+    border-radius: 20px;
+    padding: 5px;
+    margin: 5px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
 
+.weather-border{
+    border-radius: 20px;
+    padding: 5px;
+    margin: 5px;
+    background-color: #ffffff;
+    box-shadow: 1px 1px 5px 5px rgba(110, 110, 110, 0.75);
+}
 
+.body-border{
+    border-radius: 20px;
+    padding: 5px;
+    margin: 5px;
+    background-color: #ffffff;
+    box-shadow: 1px 1px 5px 5px rgba(110, 110, 110, 0.75);
+}
+
+.map-broder{
+    border-radius: 20px;
+    padding: 5px;
+    margin: 5px;
+    background-color: #ffffff;
+    box-shadow: 1px 1px 5px 5px rgba(110, 110, 110, 0.75);
+}
+
+.info-border{
+    border-radius: 20px;
+    padding: 5px;
+    margin: 5px;
+    background-color: #ffffff;
+    box-shadow: 1px 10px 5px 5px rgba(110, 110, 110, 0.75);
+}
 
