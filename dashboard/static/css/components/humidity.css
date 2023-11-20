@@ -1,7 +1,7 @@
 .circle-container {
     position: relative;
-    height: 160px;
-    width: 160px;
+    height: 150px;
+    width: 150px;
     border-radius: 50%;
     overflow: hidden;
     display: flex;
@@ -10,8 +10,8 @@
 }
 
 #circle-design{
-    height: 180px;
-    width: 180px;
+    height: 170px;
+    width: 170px;
     border-radius: 50%;
     border: solid #4e9df2 6px;
     display: flex;
