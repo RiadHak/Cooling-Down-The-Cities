@@ -16,13 +16,13 @@
         {% if user.is_authenticated%}
         <div class="container-fluid">
             <a class="navbar-brand" href="/dashboard">
-                <img width="30" height="24" class="d-inline-block align-text-top">
-                Cooling down the city
+                <img width="40" height="40" class="d-inline-block align-text-top float-left" id="logo-image">
+                <h5 class="align-text-top float-right" id="brand-title">Cooling Down The Cities</h5>
             </a>
         {%else%}
         <div class="container-fluid">
             <a class="navbar-brand" href="/signin">
-                <img width="30" height="24" class="d-inline-block align-text-top">
+                <img width="40" height="40" class="d-inline-block align-text-top" id="logo-image">
                 Cooling down the city
             </a>
         {%endif%}
