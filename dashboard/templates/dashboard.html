@@ -9,22 +9,24 @@
             <div id="dashboard-charts-field">
                 <div class="curved-border chart-broder dashboard-chart" id="temperature-chart" class="temperature-chart">
                     {% include 'charts/temp.html' %} 
-                    <h6>Temperature</h6>
+                    <h6>Temperature (°C)</h6>
                 </div>
                 <div class=" dashboard-chart chart-broder humidity text-end" id="humidity-chart">
                     {% include 'charts/humidity.html'%} 
-                    <h6>humidity</h6>
+                    <h6>Humidity (%)</h6>
                 </div>
                 <div class="curved-border chart-broder dashboard-chart" id="aqi-chart">
                     {% include 'charts/airQ.html'%}
-                    <h6>Air Quality</h6>
+                    <h6>Air quality (AQI)</h6>
                 </div>
-                <div class="dashboard-chart chart-broder    " id="co2-chart">
+                <div class="dashboard-chart chart-broder" id="co2-chart">
                     {% include 'charts/co2.html'%}
-                    <h6>CO2</h6>
+                    <h6>CO² (ppm)</h6>
                 </div>
-                <!-- <div class="curved-border border-black dashboard-chart" id="carbon-chart"></div> -->
-                <div class="curved-border chart-broder dashboard-chart" id="pressure-chart"></div>      
+                <div class="curved-border chart-broder dashboard-chart" id="pressure-chart">
+                    {% include 'charts/airpressure.html'%}
+                    <h6>Air pressure (hPa)</h6>
+                </div>      
                 <div class="curved-border chart-broder dashboard-chart" id="placeholder-chart"></div>
             </div>
             <div class="curved-border info-border" id="dashboard-stats-field">
