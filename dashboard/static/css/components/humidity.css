@@ -1,7 +1,7 @@
 .circle-container {
     position: relative;
-    height: 150px;
-    width: 150px;
+    height: 160px;
+    width: 160px;
     border-radius: 50%;
     overflow: hidden;
     display: flex;
@@ -10,8 +10,8 @@
 }
 
 #circle-design{
-    height: 170px;
-    width: 170px;
+    height: 180px;
+    width: 180px;
     border-radius: 50%;
     border: solid #4e9df2 6px;
     display: flex;
@@ -39,6 +39,8 @@
 
 
 #humidity-chart {
+    display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
