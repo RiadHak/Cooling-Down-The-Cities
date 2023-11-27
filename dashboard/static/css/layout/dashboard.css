@@ -3,8 +3,6 @@
     margin-top: 1%;
     margin-bottom: 1%;
     display: flex;
-    overflow: auto;
-    box-sizing: border-box;
 }
 
 #dashboard-boxname-field {
@@ -17,28 +15,20 @@
 .dashboard-chart {
     margin: 0.5em;
     min-width: 200px;
-    min-height: 240px;
+    min-height: 200px;
     height: auto; 
     flex-grow: 1;
     flex-basis: 0;
     position: relative;
     max-width: 300px;
     max-height: 300px;
-    display: grid;
-    grid-template-rows: 200px 40px;
-    
 }
 
-.dashboard-chart h6 {
-    margin-top: 10%;
-    text-align: center;
+.dashboard-chart::before {
+    content: "";
+    padding-top: 100%;
+    display: block;
 }
-
-.humidity h6 {
-    margin-top: 15%;
-    text-align: center;
-}
-
 
 #dashboard-charts-field {
     margin: 1em;
@@ -46,87 +36,4 @@
     flex-wrap: wrap; 
     justify-content: center; 
     align-items: center; 
-}
-
-#dashboard-stats-field {
-    margin: 1em;
-    padding: 0.5em;
-    display: flex;
-    flex-wrap: wrap;
-    flex-basis: 33%;
-}
-
-.dashboard-stat-column {
-    margin: 0.5em;
-    min-width: 200px;
-    width: auto; 
-    flex-grow: 1;
-    flex-basis: 0;
-    position: relative;
-    max-width: 300px;
-}
-
-.dashboard-stat {
-    text-align: left;
-    font-size: 18px;
-}
-
-#weather-frame {
-    margin: 1em;
-    padding: 0.5em;
-    height: 50%;
-}
-
-#location-map-frame {
-    margin: 1em;
-    padding: 0.5em;
-    height: 50%;
-}
-
-.chart-broder{
-    border-radius: 20px;
-    padding: 5px;
-    margin: 5px;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
-}
-
-.weather-border{
-    border-radius: 20px;
-    padding: 5px;
-    margin: 5px;
-    background-color: #ffffff;
-    box-shadow: 1px 1px 5px 5px rgba(110, 110, 110, 0.75);
-}
-
-.body-border{
-    border-radius: 20px;
-    padding: 5px;
-    margin: 5px;
-    background-color: #ffffff;
-    box-shadow: 1px 1px 5px 5px rgba(110, 110, 110, 0.75);
-}
-
-.map-broder{
-    border-radius: 20px;
-    padding: 5px;
-    margin: 5px;
-    background-color: #ffffff;
-    box-shadow: 1px 1px 5px 5px rgba(110, 110, 110, 0.75);
-}
-
-.info-border{
-    border-radius: 20px;
-    padding: 5px;
-    margin: 5px;
-    background-color: #ffffff;
-    box-shadow: 1px 10px 5px 5px rgba(110, 110, 110, 0.75);
-}
-
-#pressure-chart {
-    justify-content: space-around;
-}
-
-#co2-chart {
-    justify-content: space-around;
 }
