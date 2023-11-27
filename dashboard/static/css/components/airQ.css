@@ -7,11 +7,6 @@
     border:4px solid #d10000;
     border-radius: 15px;
 }
-
-
-
-
-
 .thermometer-container {
     width: 47px;
     height: 150px;
@@ -42,7 +37,7 @@
     transform: translateX(-50%);
 }
 
-.inpi{
+/* .inpi{
 
     margin-bottom: 100px;
-}
+} */
