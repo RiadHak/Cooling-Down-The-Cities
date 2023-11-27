@@ -3,8 +3,6 @@ from .forms import RegisterFrom, LoginForm
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
-from .models import CustomUser
-
 
 def signin(request):
     if request.method == "GET":
