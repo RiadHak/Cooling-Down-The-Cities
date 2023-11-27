@@ -122,6 +122,13 @@
     background-color: #ffffff;
     box-shadow: 1px 10px 5px 5px rgba(110, 110, 110, 0.75);
 }
+#pressure-chart {
+    justify-content: space-around;
+}
+
+#co2-chart {
+    justify-content: space-around;
+}
 
 #pressure-chart {
     justify-content: space-around;
