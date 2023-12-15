@@ -3,6 +3,10 @@
     background-size: cover;
 }
 
+.circle-image {
+    border-radius: 50%;
+}
+
 #user-bg-image {
     background-image: url("../../img/cdtc.jpg");
 }
