@@ -52,9 +52,5 @@ def dashboard(request):
     return render(request, 'dashboard.html')
 
 def getDataFromDB(request):
-    mydata = Seeders.objects.values().last()
-    
-    print(mydata)
-    
-    
+    mydata = Seeders.objects.values().last() 
     return JsonResponse({'data': list(mydata.values())})
