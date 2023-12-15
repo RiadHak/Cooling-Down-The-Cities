@@ -1,17 +1,18 @@
-function updateThermometer(value) {
+
+function updateThermometer(val) {
     const liquid = document.getElementById("thermometer-liquid");
     const valueDisplay = document.getElementById("value-display");
     const outerBorder = document.getElementById("outer-line");
-    const color = getColor(value);
-    const height = (value / 5) * 100 + "%";
+    const color = getColor(val);
+    const height = (val / 5) * 100 + "%";
     liquid.style.height = height;
-    if(value == 0){
+    if(val == 0){
         liquid.style.height = 5+"%";
     }
     outerBorder.style.borderColor = color;
     liquid.style.backgroundColor = color;
     liquid.style.backgroundColor = color;
-    valueDisplay.innerText = Math.ceil(value);
+    valueDisplay.innerText = Math.ceil(val);
 }
 
 function getColor(value) {
@@ -26,4 +27,4 @@ function getColor(value) {
     }
 }
 
-updateThermometer(3);
+// updateThermometer(1);

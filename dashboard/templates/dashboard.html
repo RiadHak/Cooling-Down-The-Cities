@@ -5,7 +5,7 @@
     {%block content%}
     <div class="curved-border body-border" id="dashboard-frame">
         <div class="half-column float-left">
-            <div class="curved-border shadow-lg rounded-3" id="dashboard-boxname-field">Name of the box</div>
+            <div class="curved-border shadow-lg rounded-3 name-border" id="dashboard-boxname-field">Name of the box</div>
             <div id="dashboard-charts-field">
                 <div class="curved-border chart-broder dashboard-chart" id="temperature-chart" class="temperature-chart">
                     {% include 'charts/temp.html' %} 
@@ -51,5 +51,7 @@
         </div>
     </div>
     <script src="{%static 'js/dashboard.js'%}"></script>
+
+
     {%endblock%}
 </body>
