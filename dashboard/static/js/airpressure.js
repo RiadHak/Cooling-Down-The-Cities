@@ -1,3 +1,5 @@
+
+
 var gauge = new RadialGauge({
     renderTo: 'gauge',
     colorNumbers: 'black',
@@ -11,12 +13,14 @@ var gauge = new RadialGauge({
         { from: 1020, to: 1060, color: 'rgba(0, 0, 255, 0.8)' }
     ],
     units: 'hPa',
-    animationDuration: 3000,
+    animationDuration: 1500,
     animationRule: "linear",
 }).draw();
 
-function updateGauge() {
-    var pressureInput = document.getElementById('pressureInput').value;
+// updateAirP(1020);
+function updateAirP(val) {
+    var pressureInput = val;
     gauge.value = pressureInput;
     gauge.draw();
 }
+

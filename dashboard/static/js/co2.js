@@ -1,3 +1,4 @@
+
 var Data = function () {
     const startWaarde = 350;
 
@@ -71,12 +72,15 @@ window.onload = function () {
     var ctx = document.getElementById('chart').getContext('2d');
     window.myGauge = new Chart(ctx, config);
 };
-config.data.datasets[0].data = Data();
-var newValue = randomValue();
-config.data.datasets[0].value = newValue;
-config.options.needle.rotation = calculateNeedleAngle(newValue);
-window.myGauge.update();
 
+
+function updateCo2(val){
+    config.data.datasets[0].data = Data();
+    config.data.datasets[0].value = val;
+    config.options.needle.rotation = calculateNeedleAngle(val);
+    //window.myGauge.update();
+
+}
 
 
 
