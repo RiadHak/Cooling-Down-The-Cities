@@ -1,23 +1,8 @@
+.background-no-repeat-cover {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 #user-bg-image {
     background-image: url("../../img/cdtc.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-#header-logo-image {
-    background-image: url("../../img/davinci-logo.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-#footer-left-logo-image {
-    background-image: url("../../img/davinci-logo.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-#footer-right-logo-image {
-    background-image: url("../../img/eu-logo.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
 }
