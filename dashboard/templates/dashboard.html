@@ -5,7 +5,7 @@
     {%block content%}
     <div class="curved-border border-black" id="dashboard-frame">
         <div class="half-column float-left">
-            <div class="curved-border border-black" id="dashboard-boxname-field">Name of the box</div>
+            <div class="curved-border shadow-lg rounded-3 name-border" id="dashboard-boxname-field">Name of the box</div>
             <div id="dashboard-charts-field">
                 <div class="curved-border border-black dashboard-chart" id="temperature-chart"></div>
                 <div class=" dashboard-chart text-end" id="humidity-chart">
@@ -20,5 +20,7 @@
         <div class="half-column float-right">Placeholder</div>
     </div>
     <script src="{%static 'js/dashboard.js'%}"></script>
+
+
     {%endblock%}
 </body>

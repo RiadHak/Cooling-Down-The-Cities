@@ -7,7 +7,7 @@
 <body>
     {%block content%}
     {% load bootstrap5 %}
-    <div id="user-bg-image">
+    <div class="background-no-repeat-cover" id="user-bg-image">
         <div class="container min-vh-100 align-items-center d-flex justify-content-center">
             <form action="/signup/" method="POST" class="form-control w-25 shadow-lg p-3 mb-5 bg-body-tertiary rounded" novalidate>
                 {%csrf_token%}
@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div>
-                    <p style="font-size: 11px">By clicking “Sign up”, you agree to our terms of service and acknowledge that you have read and understand our <a href="/privatepolicy" target="_blank">privacy policy.</a></p>
+                    <p style="font-size: 11px">By clicking “Sign up”, you agree to our terms of service and acknowledge that you have read and understand our <a href="{%url 'privatepolicy'%}" target="_blank">privacy policy.</a></p>
                 </div>
             </form>
         </div>

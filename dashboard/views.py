@@ -3,7 +3,9 @@ from .forms import RegisterFrom, LoginForm
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
-from .models import CustomUser
+from django.http import JsonResponse
+from .models import Seeders
+
 
 
 def signin(request):
@@ -48,3 +50,7 @@ def privatePolicy(request):
 @login_required(login_url='/signin/')
 def dashboard(request):
     return render(request, 'dashboard.html')
+
+def getDataFromDB(request):
+    mydata = Seeders.objects.values().last() 
+    return JsonResponse({'data': list(mydata.values())})

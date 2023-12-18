@@ -1,5 +1,12 @@
-#user-bg-image{
-    background-image: url("../../img/cdtc.jpg");
+.background-no-repeat-cover {
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.circle-image {
+    border-radius: 50%;
+}
+
+#user-bg-image {
+    background-image: url("../../img/cdtc.jpg");
 }
