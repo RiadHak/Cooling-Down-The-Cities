@@ -32,7 +32,10 @@ def signout(request):
     return redirect('/signin')      
 
 def signup(request):
-    if request.method == "POST":
+    if request.method == "GET":
+        if request.user.is_authenticated:
+            return redirect('dashboard')
+    elif request.method == "POST":
         form = RegisterFrom(request.POST)
         if form.is_valid():
             form.save()
