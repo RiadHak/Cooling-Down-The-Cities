@@ -231,3 +231,4 @@ STATICFILE_FINDER = [
 ]
 
 AUTH_USER_MODEL = 'dashboard.CustomUser'
+
