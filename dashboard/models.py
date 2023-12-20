@@ -42,18 +42,18 @@ class CustomUser(AbstractUser):
 
 class Seeders(models.Model):
     
-    temperatuur = models.FloatField()
+    TEMPERATURE = models.FloatField()
     CO2  = models.IntegerField()
-    luchtvochtigheid = models.IntegerField()
-    luchtdruk = models.IntegerField()
-    luchtkwaliteit = models.IntegerField()
+    HUMIDITY = models.IntegerField()
+    PRESSURE = models.IntegerField()
+    AIRQUALITY = models.IntegerField()
     timestamp = models.DateTimeField(default=timezone.now)
 
     def get_day(self):
         return self.timestamp.strftime('%A')
     
     def save(self, *arg, **kwarg):
-        self.temperatuur = round(self.temperatuur, 2)
+        self.temperatuur = round(self.TEMPERATURE, 2)
         super(Seeders, self).save(*arg, **kwarg)
         
     
