@@ -3,6 +3,8 @@
 {%load static%}
 <body>
     {%block content%}
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <div class="curved-border body-border" id="dashboard-frame">
         <div class="half-column float-left">
             <div class="curved-border shadow-lg rounded-3 name-border" id="dashboard-boxname-field">Name of the box</div>
@@ -44,13 +46,15 @@
             </div>
         </div>
         <div class="half-column float-right">
-            <div class="curved-border weather-border " id="weather-frame">Test</div>
+            <div class="curved-border weather-border " id="weather-frame">
+                {% include 'graph/graph.html' %}
+            </div>
             <div class="curved-border map-border" id="location-map-frame">
                 <iframe frameborder="0" width="100%" height="100%" id="map_canvas" src="https://maps.google.com/maps?q=Leerparkpromenade+110%2c+Dordrecht%2c+Nederland&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=&amp;output=embed&amp;hl=nl" title="Googlemaps kaart iframe"></iframe>
             </div>
         </div>
     </div>
-    <script src="{%static 'js/dashboard.js'%}"></script>
+    <script type="module" src="{%static 'js/dashboard.js'%}"></script>
 
 
     {%endblock%}
