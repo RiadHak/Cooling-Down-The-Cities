@@ -98,18 +98,32 @@ WSGI_APPLICATION = 'CoolingDownTheCities.wsgi.application'
 
 common_commands = ['makemigrations','migrate','createsuperuser','collectstatic','8000','showmigrations']
 try: 
-    print("Using Azure DB")
-    DEBUG = False
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'cdtc',
-            'USER': 'cdtcadmin',
-            'PASSWORD': 'Projectroot.',
-            'HOST': 'cdtc-project.mysql.database.azure.com',
-            'PORT': '3306'
+    if len(sys.argv) > 1 and [sys.argv[1] or sys.argv[2] == x for x in common_commands]:
+        DEBUG = True
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.mysql',
+                'NAME': os.environ.get("DB_NAME"),
+                'USER': os.environ.get("DB_USER"),
+                'PASSWORD': os.environ.get("DB_PASS"),
+                'HOST': os.environ.get("DB_HOST"),
+                'PORT': '3306',
+                'print': print("Using local DB")
+            }
         }
-    }
+    else:
+        print("Using Azure DB")
+        DEBUG = False
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.mysql',
+                'NAME': 'cdtc',
+                'USER': 'cdtcadmin',
+                'PASSWORD': 'Projectroot.',
+                'HOST': 'cdtc-project.mysql.database.azure.com',
+                'PORT': '3306'
+            }
+        }
 except IndexError:
         DEBUG = False
         DATABASES = {
