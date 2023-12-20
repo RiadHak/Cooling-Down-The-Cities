@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
+from django.utils import timezone
 
 class CustomUserManager(BaseUserManager):
     
@@ -46,6 +47,10 @@ class Seeders(models.Model):
     luchtvochtigheid = models.IntegerField()
     luchtdruk = models.IntegerField()
     luchtkwaliteit = models.IntegerField()
+    timestamp = models.DateTimeField(default=timezone.now)
+
+    def get_day(self):
+        return self.timestamp.strftime('%A')
     
     def save(self, *arg, **kwarg):
         self.temperatuur = round(self.temperatuur, 2)

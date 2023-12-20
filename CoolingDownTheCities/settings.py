@@ -98,8 +98,7 @@ WSGI_APPLICATION = 'CoolingDownTheCities.wsgi.application'
 
 common_commands = ['makemigrations','migrate','createsuperuser','collectstatic','8000','showmigrations']
 try: 
-    if len(sys.argv) > 1 and [sys.argv[1] or sys.argv[2] == x for x in common_commands]:
-        
+    if len(sys.argv) > 1 and [sys.argv[1] or sys.argv[2] == x for x in common_commands] and os.environ.get("DB_NAME") == 'cdtc_db':
         DEBUG = True
         DATABASES = {
             'default': {
