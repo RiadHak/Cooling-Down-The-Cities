@@ -8,6 +8,7 @@ from .models import Seeders
 from django.utils import timezone
 from datetime import timedelta
 from django.db.models import Avg
+import random
 
 
 def signin(request):
@@ -54,7 +55,9 @@ def dashboard(request):
     return render(request, 'dashboard.html')
 
 def getDataFromDB(request):
-    mydata = Seeders.objects.values().last() 
+    total_rows = Seeders.objects.count()
+    random_index = random.randint(0, total_rows - 1)
+    mydata = Seeders.objects.values()[random_index] 
     return JsonResponse({'data': list(mydata.values())})
 
 def get_humidity_data(request):
