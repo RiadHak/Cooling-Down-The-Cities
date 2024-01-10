@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 vAxis: { title: 'Temperatuur' }
             };
 
-            var chart = new google.visualization.ColumnChart(document.getElementById('weather-frame'));
+            var chart = new google.visualization.LineChart(document.getElementById('weather-frame'));
             chart.draw(dataTable, options);
         });
     }
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 vAxis: { title: 'Luchtdruk' }
             };
 
-            var chart = new google.visualization.ColumnChart(document.getElementById('weather-frame'));
+            var chart = new google.visualization.LineChart(document.getElementById('weather-frame'));
             chart.draw(dataTable, options);
         });
     }
