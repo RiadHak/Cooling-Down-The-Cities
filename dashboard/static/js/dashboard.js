@@ -1,9 +1,8 @@
 google.charts.load('current', {'packages':['corechart']});
 
-
-
 document.addEventListener('DOMContentLoaded', function() {
     var dashboardCharts = document.getElementsByClassName('dashboard-chart');
+    var weatherFrame = document.getElementById('weather-frame');
     Array.prototype.forEach.call(dashboardCharts, chartField => {chartField.setAttribute('chart-value', "")});
 
     var isTemperatureGraphLoaded = false;
@@ -59,13 +58,11 @@ document.addEventListener('DOMContentLoaded', function() {
         isAirPressureGraphLoaded = false;
     });
 
-    
     function generateWeekData(dataType) {
         var currentDate = new Date();
-        var daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']; // Days of the week
+        var daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']; 
         var sensorData = [];
 
-        // Generate data for each day of the week
         for (var i = 0; i < 7; i++) {
             var day = daysOfWeek[currentDate.getDay()];
             var temperature = dataType == chartValues.temperature ? dataType : null;
@@ -100,6 +97,19 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(temperatureData);
         var temperatureChartData = generateWeekData(temperatureData);
 
+        // Buttons
+
+        // const buttonWeek = document.createElement('BUTTON');
+        // buttonWeek.id = 'buttonWeekTemperature';
+        // buttonWeek.innerText = 'A week ago';
+        // buttonWeek.style.backgroundColor = 'red';
+
+        // document.body.appendChild(buttonWeek);
+
+        // document.getElementById('buttonWeekTemperature').addEventListener('click', function() {
+        //     filterTemperatureDataByWeek();
+        // });
+        
         google.charts.setOnLoadCallback(function() {
             var dataTable = new google.visualization.DataTable();
             dataTable.addColumn('string', 'Timestamp');
@@ -142,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 vAxis: { title: 'CO2' }
             };
 
-            var chart = new google.visualization.ColumnChart(document.getElementById('weather-frame'));
+            var chart = new google.visualization.LineChart(document.getElementById('weather-frame'));
             chart.draw(dataTable, options);
         });
     }
@@ -191,10 +201,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 title: 'Luchtvochtigheid Data',
                 legend: { position: 'none' },
                 hAxis: { title: 'Timestamp' },
-                vAxis: { title: 'Luchtvochtigheid' }
+                vAxis: { title: 'Luchtvochtigheid',
+                            viewWindow: {
+                                max: 100,
+                                min: 0
+                            },
+                            gridlines: {
+                                count: 11  
+                            }
+                        }
             };
 
-            var chart = new google.visualization.ColumnChart(document.getElementById('weather-frame'));
+            var chart = new google.visualization.LineChart(document.getElementById('weather-frame'));
             chart.draw(dataTable, options);
         });
     }
@@ -212,15 +230,23 @@ document.addEventListener('DOMContentLoaded', function() {
             aqiChartData.forEach(function(entry) {
                 dataTable.addRow([entry.timestamp, entry.luchtkwaliteit]);
             });
-
+            
             var options = {
                 title: 'Air Quality',
                 legend: { position: 'none' },
                 hAxis: { title: 'Timestamp' },
-                vAxis: { title: 'Air Quality' }
+                vAxis: { title: 'Air Quality',
+                viewWindow: {
+                    max: 5,
+                    min: 0
+                },
+                gridlines: {
+                    count: 11
+                } 
+            }
             };
 
-            var chart = new google.visualization.ColumnChart(document.getElementById('weather-frame'));
+            var chart = new google.visualization.LineChart(document.getElementById('weather-frame'));
             chart.draw(dataTable, options);
         });
     }
