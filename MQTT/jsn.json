@@ -1,0 +1,97 @@
+{
+    "end_device_ids": {
+        "device_id": "eui-2cf7f12043307b86",
+        "application_ids": {
+            "application_id": "cdtc2"
+        },
+        "dev_eui": "2CF7F12043307B86",
+        "join_eui": "526973696E674846",
+        "dev_addr": "260B4068"
+    },
+    "cor relation_ids": [
+        "gs: uplink:01HGDPVAH2WQ5JMCRHZ6XC5M44"
+    ],
+    "received_at": "2023-11-29T14:13:41.234545320Z",
+    "uplink_message": {
+        "session_key_id": "AYwbbYRYsYykGNc0DzH5qQ==",
+        "f_port": 8,
+        "frm_payload": "MTE2 NzUxMDAyMzIwMzU5NTEwMDAyNDAWNDAW",
+        "decoded_payload": {
+            "0": {
+                "field": "TEMPERATURE",
+                "value": 16.75
+            },
+            "1": {
+                "field": "PRESSURE",
+                "value": 1002.3199999999999
+            },
+            "2": {
+                "field": "HUMIDITY",
+                "value": 35.949999999999996
+            },
+            "3": {
+                "field": "AIRQUALITY",
+                "value": 1
+            },
+            "4": {
+                "field": "VOC",
+                "value": 24
+            },
+            "5": {
+                "field": "C02",
+                "value": 400
+            }
+        },
+        "rx_metadata": [
+            {
+                "gateway_ids": {
+                    "gateway_id": "drechtsteden-land-van-valk1",
+                    "eui": "B827EBF FFE6DB3BD"
+                },
+                "time": "2023-11-29T14:13:40.982Z",
+                "timestamp": 1360961060,
+                "rssi": -115,
+                "channel_rssi": -115,
+                "snr": 4,
+                "location": {
+                    "latitude": 51.801385398104195,
+                    "longitude": 4.6828546247064615,
+                    "altitude": 11,
+                    "source": "SOURCE_REGISTRY"
+                },
+                "uplink_token": "CikkJwobZHJ1Y2h0c3R1ZGVuLWxhbmQtdmFuLXZhbGsxEgi4J+v//m2zvRCkvPqIBROLCJWOnasGEIX6vgwgoPnm/M28dioMCJSOnasGEIDDONQD",
+                "channel_index": 3,
+                "gps_time": "2023 -11-29T14:13:40.982Z",
+                "received_at": "2023-11-29T14:13:41.014332457Z"
+            }
+        ],
+        "settings": {
+            "data_rate": {
+                "lora": {
+                    "bandwidth": 125000,
+                    "spreading_factor": 12,
+                    "coding_rate": "4/5"
+                }
+            },
+            "frequency": "867100000",
+            "ti mestamp": 1360961060,
+            "time": "2023-11-29T14:13:40.9827"
+        },
+        "received_at": "2023-11-29T14:13:41.026822082Z",
+        "consumed_airtime": "1.974272s",
+        "locations": {
+            "user": {
+                "latitude": 51.79734909341692,
+                "longitude": 4.6807235600613915,
+                "source": "SOURCE_REGISTRY"
+            }
+        },
+        "network_ids": {
+            "net_id": "000013",
+            "ns_id": "EC656E0000000181",
+            "tenant_id": "ttn",
+            "cluster_id": "eu1",
+            "cluster_address": "eu1.cloud.thethings.network"
+        }
+    }
+}
