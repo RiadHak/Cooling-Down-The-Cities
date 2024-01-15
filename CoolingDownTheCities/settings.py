@@ -31,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = 'django-insecure-!zt)ovy^t3z50z%kt9h+e)ph9nv&v4+l)9^cdplq8*o6m!iouy'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -99,8 +99,7 @@ WSGI_APPLICATION = 'CoolingDownTheCities.wsgi.application'
 
 common_commands = ['makemigrations','migrate','createsuperuser','collectstatic','8000','showmigrations']
 try: 
-    if len(sys.argv) > 1 and [sys.argv[1] or sys.argv[2] == x for x in common_commands]:
-        
+    if len(sys.argv) > 1 and [sys.argv[1] or sys.argv[2] == x for x in common_commands] and os.environ.get("DB_NAME") == 'cdtc_db':
         DEBUG = True
         DATABASES = {
             'default': {
@@ -215,7 +214,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL = 'signin'
+LOGIN_URL = '/signin/'
 LOGOUT_REDIRECT_URL = '/signin/'
 
 PASSWORD_HASHERS = [

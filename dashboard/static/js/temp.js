@@ -10,7 +10,6 @@ document.getElementById("temparature-meter__inner-ring").innerHTML += "<style>#t
 
 function setTempValue(val) {
 
-    console.log("yooo3");
     tempValue = val;
     document.getElementById("span1").innerHTML = tempValue;
     if (val < 0) {
