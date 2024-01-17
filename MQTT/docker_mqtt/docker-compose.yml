@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: mosquitto
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    expose:
+      - "1883"
+      - "9001"
+    volumes:
+      - ./data:/mosquitto/data
+      - ./log:/mosquitto/log
+      - ./config/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+    
+    
